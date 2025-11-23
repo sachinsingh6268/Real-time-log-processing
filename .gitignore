@@ -1,0 +1,77 @@
+# =====================
+# Python
+# =====================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+*.egg
+*.log
+
+# Virtual environment
+.streaming_env/
+streaming_env/*
+.venv/
+*/venv/
+*/env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# =====================
+# PyCharm / IDE
+# =====================
+.idea/
+*.iml
+
+# =====================
+# Spark
+# =====================
+# Spark local temporary files
+spark-warehouse/
+derby.log
+
+# Spark event logs
+eventlog/
+spark-events/
+*.eventlog
+
+# =====================
+# Kafka / Docker
+# =====================
+# Confluent local files
+tmp/
+logs/
+data/
+kafka-logs/
+zookeeper/
+zookeeper-data/
+zookeeper-log/
+
+# Docker
+*.pid
+docker-compose.override.yml
+docker-volumes/
+docker-data/
+
+# =====================
+# System / OS
+# =====================
+.DS_Store
+Thumbs.db
+
+# =====================
+# Build / Packaging
+# =====================
+dist/
+build/
+*.whl
+
+# Ignore Ivy/Maven jars resolved by Spark
+.ivy2/
+.m2/
+
+
+
