@@ -24,7 +24,7 @@ if __name__ == "__main__":
     # Defining schema (Define nested schema explicitly)
     agent_schema = StructType([
         StructField("browser", StringType()),
-        StructField("operating_system", StringType()),
+        StructField("os", StringType()),
         StructField("device_type", StringType())
     ])
 
@@ -41,13 +41,13 @@ if __name__ == "__main__":
         StructField("url", StringType()),
         StructField("method", StringType()),
         StructField("status_code", IntegerType()),
-        StructField("response_time_ns", DecimalType()),
-        StructField("byte_sent", DecimalType()),
+        StructField("response_time_ms", DecimalType()),
+        StructField("bytes_sent", DecimalType()),
         StructField("user_agent", agent_schema),
         StructField("geo", geographical_schema),
         StructField("traffic_source", StringType()),
         StructField("is_authenticated", BooleanType()),
-        StructField("date", DateType())
+        StructField("ts", DateType())
     ])
 
     parsed_df = json_df.select(from_json(col("json_str"),schema).alias("data"))
@@ -61,16 +61,16 @@ if __name__ == "__main__":
         col("data.url"),
         col("data.method"),
         col("data.status_code"),
-        col("data.response_time_ns"),
-        col("data.byte_sent"),
+        col("data.response_time_ms"),
+        col("data.bytes_sent"),
         col("data.user_agent.browser"),
-        col("data.user_agent.operating_system"),
+        col("data.user_agent.os").alias("operating_system"),
         col("data.user_agent.device_type"),
         col("data.geo.country"),
         col("data.geo.state"),
         col("data.traffic_source"),
         col("data.is_authenticated"),
-        col("data.date")
+        col("data.ts").alias("date")
     )
 
     output_path = "/home/sachin/Downloads/Datasets/Output/"
