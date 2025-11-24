@@ -58,7 +58,7 @@ Real-Time-Log-Processing/
 
 ## 📝 Notes
 
-* Ensure correct Delta version for Spark 3.3.3 → **2.4.0**
+* Ensure correct Delta version for Spark 3.3.3 → **2.3.0**
 * Remove conflicting Spark jars from `~/.ivy2/jars` if needed
 * Kafka must be running before Spark Streaming starts
 * Use a separate terminal window for each component
